@@ -11,4 +11,6 @@ For building image use: `docker build . -t "IMAGE_NAME"`
 
 To run container use: `docker run -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes --name CONTAINER_NAME -d -v LOCAL_PATH:/home/jovyan/work IMAGE_NAME`
 
-To obtain access token look into container's console output;
+To obtain access token look into container's console output.
+
+If you need to get sudo access inside container, use following parameters `--user root -e GRANT_SUDO=yes`
