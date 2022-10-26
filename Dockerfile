@@ -2,13 +2,12 @@ FROM jupyter/datascience-notebook
 
 USER root
 
-RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-RUN dpkg -i packages-microsoft-prod.deb
-
-RUN apt-get update
-RUN apt-get install -y apt-transport-https
-RUN apt-get update
-RUN apt-get install -y dotnet-sdk-5.0
+RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+    dpkg -i packages-microsoft-prod.deb && \
+    apt-get update && \
+    apt-get install -y apt-transport-https && \
+    apt-get update && \
+    apt-get install -y dotnet-sdk-5.0
 
 RUN dotnet tool install -g --add-source "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json" Microsoft.dotnet-interactive
 
